@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './editor.css';
 
 class ClassGesture extends Component {
   render() {
     return (
-    <div className="Gesture a">
-      <svg height="600">
-        <circle cx={10} cy={10} r={10} fill="brown" />
-        <circle cx={32} cy={10} r={10} fill="brown" />
-        <circle cx={54} cy={10} r={10} fill="brown" />
-        <circle cx={10} cy={211} r={10} fill="brown" />
-        <circle cx={10} cy={432} r={10} fill="brown" />
-        <circle cx={32} cy={432} r={10} fill="brown" />
-        <circle cx={54} cy={432} r={10} fill="brown" />
+    <div>
+      <svg height="66px">
+          <circle cx={10} cy={10} r={10} fill="brown" />
+          <circle cx={32} cy={10} r={10} fill="brown" />
+          <circle cx={54} cy={10} r={10} fill="brown" />
+          <circle cx={10} cy={32} r={10} fill="brown" />
+          <circle cx={10} cy={54} r={10} fill="brown" />
+          <circle cx={32} cy={54} r={10} fill="brown" />
+          <circle cx={54} cy={54} r={10} fill="brown" />
       </svg>
-      {this.props.children}
+      <ul>
+        <li>
+          {this.props.children}
+        </li>
+      </ul>
     </div>
     );
   }
@@ -24,15 +28,19 @@ class ClassGesture extends Component {
 class MethodDeclarationGesture extends Component {
   render() {
     return (
-      <div className="Gesture b">
-          <svg>
-            <circle cx={10} cy={10} r={10} fill="orange" />
-            <circle cx={32} cy={10} r={10} fill="orange" />
-            <circle cx={54} cy={10} r={10} fill="orange" />
-            <circle cx={84} cy={10} r={10} fill="orange" />
-            <circle cx={114} cy={10} r={10} fill="orange" />
-          </svg>
-          {this.props.children}
+      <div>
+        <svg height="22px">
+          <circle cx={10} cy={10} r={10} fill="orange" />
+          <circle cx={32} cy={10} r={10} fill="orange" />
+          <circle cx={54} cy={10} r={10} fill="orange" />
+          <circle cx={84} cy={10} r={10} fill="orange" />
+          <circle cx={114} cy={10} r={10} fill="orange" />
+        </svg>
+        <ul>
+          <li>
+            {this.props.children}
+          </li>
+        </ul>
       </div>
     );
   }
@@ -41,13 +49,17 @@ class MethodDeclarationGesture extends Component {
 class IfGesture extends Component {
   render() {
     return (
-      <div className="Gesture e">
-          <svg>
+      <div>
+        <svg height="44px">
           <circle cx={32} cy={10} r={10} fill="lime" />
           <circle cx={10} cy={30} r={10} fill="lime" />
           <circle cx={54} cy={30} r={10} fill="lime" />
           </svg>
+        <ul>
+          <li>
           {this.props.children}
+          </li>
+        </ul>
       </div>
     );
   }
@@ -56,11 +68,11 @@ class IfGesture extends Component {
 class ExpressionGesture extends Component {
   render() {
     return (
-      <div className="Gesture c">
-          <svg height="22px">
-            <circle cx={10} cy={10} r={10} fill="blue" />
-          </svg>
-        </div>
+      <div>
+        <svg height="22px">
+          <circle cx={10} cy={10} r={10} fill="blue" />
+        </svg>
+      </div>
     );
   }
 }
@@ -68,15 +80,15 @@ class ExpressionGesture extends Component {
 class MethodInvocationGesture extends Component {
   render() {
     return (
-      <div className="Gesture d">
-          <svg height="22px">
-            <circle cx={10} cy={10} r={10} fill="orange" />
-            <circle cx={32} cy={10} r={10} fill="orange" />
-            <circle cx={54} cy={10} r={10} fill="orange" />
-            <circle cx={84} cy={10} r={10} fill="orange" />
-            <circle cx={114} cy={10} r={10} fill="orange" />
-          </svg>
-        </div>
+      <div>
+        <svg height="22px">
+          <circle cx={10} cy={10} r={10} fill="orange" />
+          <circle cx={32} cy={10} r={10} fill="orange" />
+          <circle cx={54} cy={10} r={10} fill="orange" />
+          <circle cx={84} cy={10} r={10} fill="orange" />
+          <circle cx={114} cy={10} r={10} fill="orange" />
+        </svg>
+      </div>
     );
   }
 }
@@ -84,13 +96,17 @@ class MethodInvocationGesture extends Component {
 class ElseIfGesture extends Component {
   render() {
     return (
-        <div className="Gesture f">
-          <svg>
+        <div>
+          <svg height="66px">
             <circle cx={10} cy={10} r={10} fill="red" />
             <circle cx={32} cy={30} r={10} fill="red" />
             <circle cx={54} cy={50} r={10} fill="red" />
           </svg>
-          {this.props.children}
+          <ul>
+            <li>
+            {this.props.children}
+            </li>
+          </ul>
         </div>
     );
   }
@@ -99,18 +115,22 @@ class ElseIfGesture extends Component {
 class ElseGesture extends Component {
   render() {
     return (
-      <div className="Gesture g">
+      <div>
         <svg>
           <circle cx={10} cy={50} r={10} fill="red" />
           <circle cx={32} cy={30} r={10} fill="red" />
           <circle cx={54} cy={10} r={10} fill="red" />
         </svg>
-        {this.props.children}
+        <ul>
+          <li>
+          {this.props.children}
+          </li>
+        </ul>
       </div>
     );
   }
 }
-class App extends Component {
+class Editor extends Component {
   render() {
     return (
       <div className="App">
@@ -137,4 +157,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Editor;

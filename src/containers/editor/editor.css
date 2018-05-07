@@ -1,0 +1,12 @@
+.App {
+  text-align: left;
+  display: grid;
+  grid-template-columns: 44px;
+  grid-template-rows: 22px;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 44px;
+  margin: 0px;
+}
