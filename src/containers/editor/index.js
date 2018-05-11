@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import {
+  loadScript
+} from '../../modules/editor'
 import './editor.css';
+import {
+  translateJStoAST
+} from '../../modules/translator';
 
 class ClassGesture extends Component {
   render() {
@@ -131,6 +138,29 @@ class ElseGesture extends Component {
   }
 }
 class Editor extends Component {
+
+  translateToModel(props)
+  {
+    console.log(props)
+    if (props.translatedAST === undefined)
+    {
+      console.log("Need to translate to AST", props.text);
+      props.translateJStoAST(this.props.text);
+    }
+    else
+    {
+      console.log("we have a translated AST", props.translatedAST);
+    }
+  }
+
+  componentWillMount() {
+    this.translateToModel(this.props);
+  }
+
+  componentWillReceiveProps(props) {
+    this.translateToModel(props);
+  }
+
   render() {
     return (
       <div className="App">
@@ -152,9 +182,26 @@ class Editor extends Component {
             </ElseGesture>
           </MethodDeclarationGesture>
         </ClassGesture>
+        <div>
+          {this.props.text}
+        </div>
     </div>
     );
   }
 }
 
-export default Editor;
+const mapStateToProps = state => ({
+  text: state.editor.text,
+  translatedAST: state.editor.translatedAST
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  loadScript,
+  translateJStoAST
+}, dispatch)
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Editor)
+

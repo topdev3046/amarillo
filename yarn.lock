@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@babel/standalone@^7.0.0-beta.46":
+  version "7.0.0-beta.46"
+  resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.0.0-beta.46.tgz#25f6de975a04fa7cd13e2ebd459a63cfc9e6192a"
+
 abab@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/abab/-/abab-1.0.4.tgz#5faad9c2c07f60dd76770f71cf025b62a63cfd4e"
