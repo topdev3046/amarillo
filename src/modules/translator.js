@@ -1,23 +1,16 @@
+import React, { Component } from 'react';
 import * as Babel from '@babel/standalone';
 
 export const TRANSLATE_JS_TO_AST = 'translator/TRANSLATE_JS_TO_AST'
-export const TRANSLATE_AST_TO_MODEL = 'translator/TRANSLATE_AST_TO_MODEL'
-export const TRANSLATE_MODEL_TO_AST = 'translator/TRANSLATE_MODEL_TO_AST'
 export const TRANSLATE_AST_TO_JS = 'translator/TRANSLATE_AST_TO_JS'
 
 const initialState = {
   translatedModel: undefined,
-  translatedAST: undefined,
   translatedJS: undefined
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case TRANSLATE_AST_TO_MODEL:
-      return {
-        ...state,
-        translatedModel: "new translated script"
-      }
 
     case TRANSLATE_AST_TO_JS:
       return {
