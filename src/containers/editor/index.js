@@ -141,15 +141,9 @@ class Editor extends Component {
 
   translateToModel(props)
   {
-    console.log(props)
     if (props.translatedAST === undefined)
     {
-      console.log("Need to translate to AST", props.text);
       props.translateJStoAST(this.props.text);
-    }
-    else
-    {
-      console.log("we have a translated AST", props.translatedAST);
     }
   }
 
@@ -162,6 +156,15 @@ class Editor extends Component {
   }
 
   render() {
+
+    const hasAST = this.props.translatedAST !== undefined;
+
+    const ast = hasAST ? (
+      <div>{this.props.translatedAST.type}</div>
+    ) : (
+      <div/>
+    );
+
     return (
       <div className="App">
         <ClassGesture>
@@ -182,9 +185,7 @@ class Editor extends Component {
             </ElseGesture>
           </MethodDeclarationGesture>
         </ClassGesture>
-        <div>
-          {this.props.text}
-        </div>
+        {ast}
     </div>
     );
   }
@@ -192,7 +193,7 @@ class Editor extends Component {
 
 const mapStateToProps = state => ({
   text: state.editor.text,
-  translatedAST: state.editor.translatedAST
+  translatedAST: state.translator.translatedAST
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

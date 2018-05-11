@@ -6,9 +6,9 @@ export const TRANSLATE_MODEL_TO_AST = 'translator/TRANSLATE_MODEL_TO_AST'
 export const TRANSLATE_AST_TO_JS = 'translator/TRANSLATE_AST_TO_JS'
 
 const initialState = {
-  translatedModel: "",
-  translatedAST: "",
-  translatedJS: ""
+  translatedModel: undefined,
+  translatedAST: undefined,
+  translatedJS: undefined
 }
 
 export default (state = initialState, action) => {
@@ -26,7 +26,6 @@ export default (state = initialState, action) => {
       }
 
     case TRANSLATE_JS_TO_AST:
-      console.log("TRANSLATE_JS_TO_AST action received", action.text)
       var result = Babel.transform(action.text, { ast: true });
       console.log("AST:", result.ast)
       return {
