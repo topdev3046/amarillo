@@ -1,4 +1,4 @@
-import React, { Component } from 'react'  
+import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import {
@@ -24,7 +24,7 @@ class Editor extends Component {
     {
       if (props.translatedModel === undefined)
       {
-        props.translateASTtoModel(this.props.translatedAST);
+        props.translateASTtoModel(props.translatedJS);
       }
     }
   }
@@ -38,7 +38,6 @@ class Editor extends Component {
   }
 
   render() {
-
     const hasModel = this.props.translatedModel !== undefined;
 
     const model = hasModel ? (
@@ -56,7 +55,8 @@ class Editor extends Component {
 const mapStateToProps = state => ({
   text: state.editor.text,
   translatedAST: state.translator.translatedAST,
-  translatedModel: state.amarillo.translatedModel
+  translatedModel: state.amarillo.translatedModel,
+  translatedJS: state.translator.translatedJS
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

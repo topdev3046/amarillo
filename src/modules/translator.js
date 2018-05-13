@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
-import * as Babel from '@babel/standalone';
+import * as Babel from '@babel/standalone'
+import amarilloPlugin from './plugin'
 
 export const TRANSLATE_JS_TO_AST = 'translator/TRANSLATE_JS_TO_AST'
 export const TRANSLATE_AST_TO_JS = 'translator/TRANSLATE_AST_TO_JS'
 
 const initialState = {
+  translatedAST: undefined,
   translatedModel: undefined,
   translatedJS: undefined
 }
@@ -19,11 +20,11 @@ export default (state = initialState, action) => {
       }
 
     case TRANSLATE_JS_TO_AST:
-      var result = Babel.transform(action.text, { ast: true });
-      console.log("AST:", result.ast)
+      var result = Babel.transform(action.text, { code: true, ast: true, plugins: [amarilloPlugin], presets: ["react"] });
       return {
         ...state,
-        translatedAST: result.ast
+        translatedAST: result.ast,
+        translatedJS: result.code
       }
 
     default:

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import * as Babel from '@babel/standalone';
 
 export const TRANSLATE_AST_TO_MODEL = 'translator/TRANSLATE_AST_TO_MODEL'
 export const TRANSLATE_MODEL_TO_AST = 'translator/TRANSLATE_MODEL_TO_AST'
@@ -140,26 +139,12 @@ class ClassGesture extends Component {
 export default (state = initialState, action) => {
   switch (action.type) {
     case TRANSLATE_AST_TO_MODEL:
+      window.React = React;
+      window.MethodInvocationGesture = MethodInvocationGesture;
+      var component = window.eval.call(window, action.code);
       return {
         ...state,
-        translatedModel: (<ClassGesture>
-            <MethodDeclarationGesture>
-              <IfGesture>
-                <ExpressionGesture/>
-                <MethodInvocationGesture/>
-              </IfGesture>
-              <ElseIfGesture>
-                <ExpressionGesture/>
-                <MethodInvocationGesture/>
-                <IfGesture>
-                  <ExpressionGesture/>
-                  <MethodInvocationGesture/>
-                </IfGesture>
-              </ElseIfGesture>
-              <ElseGesture>
-              </ElseGesture>
-            </MethodDeclarationGesture>
-          </ClassGesture>)
+        translatedModel: <div>{component}</div>
       }
 
     default:
@@ -167,11 +152,11 @@ export default (state = initialState, action) => {
   }
 }
 
-export const translateASTtoModel = (ast) => {
+export const translateASTtoModel = (code) => {
   return dispatch => {
     dispatch({
       type: TRANSLATE_AST_TO_MODEL,
-      ast: ast
+      code: code
     })
   }
 }

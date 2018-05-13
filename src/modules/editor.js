@@ -1,7 +1,7 @@
 export const LOAD_SCRIPT = 'editor/LOAD_SCRIPT'
 
 const initialState = {
-  text: "console.log(\"Hello, World!\");"
+  text: "console.log(\"Hello, World!\")"
 }
 
 export default (state = initialState, action) => {
