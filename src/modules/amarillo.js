@@ -139,9 +139,10 @@ class ClassGesture extends Component {
 export default (state = initialState, action) => {
   switch (action.type) {
     case TRANSLATE_AST_TO_MODEL:
-      window.React = React;
-      window.MethodInvocationGesture = MethodInvocationGesture;
-      var component = window.eval.call(window, action.code);
+      window.React = React
+      window.MethodInvocationGesture = MethodInvocationGesture
+      window.ClassGesture = ClassGesture
+      var component = window.eval.call(window, action.code)
       return {
         ...state,
         translatedModel: <div>{component}</div>

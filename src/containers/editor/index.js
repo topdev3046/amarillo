@@ -16,15 +16,22 @@ class Editor extends Component {
 
   translateToModel(props)
   {
-    if (props.translatedAST === undefined)
+    if (props.text === undefined)
     {
-      props.translateJStoAST(this.props.text);
+      props.loadScript('https://gihub/blabhblah')
     }
     else
     {
-      if (props.translatedModel === undefined)
+      if (props.translatedAST === undefined)
       {
-        props.translateASTtoModel(props.translatedJS);
+        props.translateJStoAST(props.text);
+      }
+      else
+      {
+        if (props.translatedModel === undefined)
+        {
+          props.translateASTtoModel(props.translatedJS);
+        }
       }
     }
   }

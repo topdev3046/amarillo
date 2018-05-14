@@ -21,6 +21,8 @@ export default (state = initialState, action) => {
 
     case TRANSLATE_JS_TO_AST:
       var result = Babel.transform(action.text, { code: true, ast: true, plugins: [amarilloPlugin], presets: ["react"] });
+      console.log("AST:", result.ast)
+      console.log("code:", result.code)
       return {
         ...state,
         translatedAST: result.ast,
