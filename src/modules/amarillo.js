@@ -142,6 +142,11 @@ export default (state = initialState, action) => {
       window.React = React
       window.MethodInvocationGesture = MethodInvocationGesture
       window.ClassGesture = ClassGesture
+      window.MethodDeclarationGesture =  MethodDeclarationGesture
+      window.IfGesture = IfGesture
+      window.ExpressionGesture = ExpressionGesture
+      window.ElseGesture = ElseGesture
+      window.ElseIfGesture = ElseIfGesture
       var component = window.eval.call(window, action.code)
       return {
         ...state,

@@ -1,4 +1,4 @@
-export const LOAD_SCRIPT = 'editor/LOAD_SCRIPT'
+export const LOAD_SCRIPT = 'editor/LOAD_SCRIPT'	
 
 const initialState = {
   text: undefined
